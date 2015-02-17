@@ -5,7 +5,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/venturai-blog/controller/create-post.php</file>
             <file>file:/C:/xampp/htdocs/venturai-blog/model/config.php</file>
-            <file>file:/C:/xampp/htdocs/venturai-blog/view/navagation.php</file>
+            <file>file:/C:/xampp/htdocs/venturai-blog/controller/create-db.php</file>
+            <file>file:/C:/xampp/htdocs/venturai-blog/model/Database.php</file>
         </group>
     </open-files>
 </project-private>

@@ -15,19 +15,25 @@ class Database {
         $this->password = $password;
         $this->database = $database;
         
-        $this->$connection = new mysqli($host, $username, $password);
+        $this->connection = new mysqli($host, $username, $password);
         
-        if ($this->$connection->connect_error) {
+        if ($this->connection->connect_error) {
             die("<p>Error: " . $this->connection->connect_error . "</p>");
         }
+          
+        $exists = $this->connection->select_db($database);
 
-        $exists = $this->connection->select_db(database);
-
+        echo "hello";
+        
         if (!$exists) {
-            $query = $this->connection->query("CREATE DATABASE" . $database . "</p>");
+            echo "hello2";
+            $query = $this->connection->query("CREATE DATABASE $database");
 
             if ($query) {
                 echo "<p>Successfully created data base:" . $database . "</p>";
+            }
+            else {
+                echo $this->connection->error;
             }
         } else {
             echo "<p>Database already exists.</p>";
@@ -37,7 +43,7 @@ class Database {
     public function openConnection() {
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 
-        if ($connection->connect_error) {
+        if ($this->connection->connect_error) {
             die("<p>Error: " . $this->connection->connect_error . "</p>");
         }
     }

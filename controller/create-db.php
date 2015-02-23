@@ -7,9 +7,26 @@
             . "post text NOT NULL,"
             . "PRIMARY KEY (id))");
     
+    /* this line of code is to figure out if query was successfull or not */
+    
     if($query) {
         echo "<p>Successfully create table: posts</p>";
     }
     else {
         echo "<p>" . $_SESSION["connection"]->error . "</p>";
     }      
+    
+    $query = $_SESSION["connection"]->query("CREATE TABLE users ("
+            . "id int(11) NOT AUTO_INCREMENT,"
+            . "username varchar(30) NOT NULL,"
+            . "email varchar(50) NOT NULL,"
+            . "password char (128) NOT NULL,"
+            . "salt char (128) NOT NULL,"
+            . "PRIMARY KEY (id))");
+    
+    if($query) {
+        echo "<p>Successfully created tabel: users</p>";
+    }
+    else{
+        echo "<p>" . $_SESSION["connection"]->error . "</p>";
+    }

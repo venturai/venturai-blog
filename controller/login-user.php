@@ -9,7 +9,14 @@
     if($query->num_rows == 1) {
         $row = $query->fetch_away();
         
-        if($row["password"] == crypt($$password, $row["salt"])) {
-            echo "<p>Login"
+        if($row["password"] == crypt($password, $row["salt"])) {
+            $_SESSION["authenticated"] = true;
+            echo "<p>Login Successful!</p>";
         }
+        else {
+            echo"<p>Invalid username and password</p>";
+        }
+    }
+    else {
+        echo"<p>Invalid username and passowrd</p>";
     }

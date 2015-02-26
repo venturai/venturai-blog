@@ -1,7 +1,7 @@
 <?php
     require_once(__DIR__ . "/Database.php");
     session_start();
-    
+    session_regener_id(true);
     $path = "/venturai-blog/";
     
     $host = "localhost";
